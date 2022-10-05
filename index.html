@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+   <!--
+     | Version 10.1.1
+     | Copyright 2012 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+    -->	
+
+	<meta charset="utf-8">
+
+	<title>Geography Treasure Hunt: Mapping Outside the Box</title>
+
+	<meta name="author" content="County of Los Angeles">
+	<meta name="description" content="Test your Geo-IQ with this map-based quiz">
+	<meta name="keywords" content="">
+
+	<!--Facebook Open Graph-->
+	<meta property="og:title" content="Geography Treasure Hunt: Mapping Outside the Box" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://treasurehunts.storymaps.esri.com/county-of-la/" />
+	<meta property="og:image" content="https://treasurehunts.storymaps.esri.com/county-of-la/thumbnail" />
+	<meta property="og:site_name" content="Esri" />
+	<meta property="og:description" content="Test your Geo-IQ with this map-based quiz"/>
+	<meta property="fb:app_id" content="475867552452282" />
+	<!--End Facebook-->
+
+	<!--Twitter Card Data-->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ArcGISStoryMaps">
+	<!--Twitter Card Data-->	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<link type="image/ico" rel="shortcut icon" href="resources/favicon.ico">
+	<link type="image/ico" rel="icon"  href="resources/favicon.ico">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="lib/leaflet.css" />
+		
+	<link rel="stylesheet" href="lib/easy-button.css" />
+			
+	<link rel="stylesheet" href="css/main.css" />		
+
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<script src="lib/leaflet.js"></script>
+	<script src="lib/esri-leaflet.js"></script>
+	
+	
+	<script src="lib/papaparse.min.js"></script>
+	<script src="lib/easy-button.js"></script>	
+
+	<script src="js/SocialButtonBar.js"></script>
+	<script src="js/Record.js"></script>
+	<script src="https://treasurehunts.storymaps.esri.com/county-of-la/config/custom.js"></script>
+	<script src="js/main.js"></script>
+	
+	<script>
+	window.HOME_LATLNG = "34.159777,-118.24656";
+	window.HOME_LEVEL = "10";
+	window.MAX_ZOOM = "16";
+	window.MIN_ZOOM = "8";
+	window.SCALE_DENOMINATOR = "300000";
+	</script>
+
+		
+
+	<!--Google Analytics Start-->
+<!--Google Analytics End-->	
+
+    <!-- Adobe Analytics Start-->
+	<script src="//mtags.esri.com/tags.js"></script>		
+    <!-- Adobe Analytics End-->
+
+</head>
+
+<body>
+
+	<div class="banner">
+		<a id="logo" href="https://www.esri.com" target="_blank">
+			<img src="resources/esri-logo.png">
+		</a>
+		<a href="https://collections.storymaps.esri.com/treasure-hunts/" target="_blank"><h1 id="title">Geography Treasure Hunt</h1></a>
+		<div class="social-button-bar"></div>
+	</div>    
+	<div id="main">
+		<div id="intro">
+			<div>
+				<div>
+					<h2>Geography Treasure Hunt</h2>
+					<h1>Mapping Outside the Box Edition</h1>
+				</div>
+				<div id="directions">
+					<p>Directions</p>
+					    <ul><li>Solve a series of questions.</li><li>Each question hints at a location somewhere in California.</li><li>To answer the question, frame the solution within the viewfinder using the map's pan/zoom functions.</li><li>The greener the viewfinder, the closer you're getting!</li></ul>
+				</div>
+				<button type="button" tabindex="0">START</button>
+			</div>
+		</div>
+		<div id="message-panel">
+			<div id="portrait"></div>
+			<div id="stack">
+				<div id="photo-credit"></div>
+				<div id="exclamation">
+					<a id="certificate" href="config/certificate.pdf" target="_blank">Claim. Your. Prize!!!</a>
+					<button id="button-next"></button>
+					<div></div>
+				</div>
+				<div id="hint"></div>
+				<div id="prompt">
+					<button></button>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div id="map">			
+			<div id="square"></div>
+			<div id="axis-y-top"></div>
+			<div id="axis-y-bottom"></div>
+			<div id="axis-x-left"></div>
+			<div id="axis-x-right"></div>
+		</div>
+	</div>
+   
+</body>
+
+</html>
