@@ -79,7 +79,7 @@
 
 		
 		Papa.parse(
-			"resources/data.csv", 
+			"https://lacountygeotrivia.github.io/gisday-2021/resources/data/csv", 
 			{
 				header: true,
 				download: true,
