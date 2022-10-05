@@ -1,0 +1,465 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* keeps things from getting wiggy on touch */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+body {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* hides adobe analytics white stripe */
+div.adsbox {
+  display: none;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.banner {
+  background-color: #404040;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+}
+@media (max-width: 500px) {
+  .banner {
+    padding: 5px;
+  }
+}
+.banner a {
+  color: white;
+  text-decoration: none;
+}
+.banner a:visited {
+  color: white;
+}
+.banner a#logo {
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+.banner a#logo img {
+  width: auto;
+  max-height: 50px;
+}
+@media (max-width: 768px) {
+  .banner a#logo img {
+    max-height: 30px;
+  }
+}
+.banner > a:nth-of-type(2) {
+  flex-grow: 1;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.banner > a:nth-of-type(2) h1#title {
+  font-size: 22px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .banner > a:nth-of-type(2) h1#title {
+    font-size: 16px;
+  }
+}
+.banner .social-button-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.banner .social-button-bar > a {
+  margin-right: 15px;
+}
+.banner .social-button-bar > a.story-map-link {
+  display: none;
+}
+@media (max-width: 768px) {
+  .banner .social-button-bar > a.story-map-link {
+    display: none;
+  }
+}
+
+.banner {
+  flex-shrink: 0;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  /*#message-panel*/
+}
+#main #intro {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#main #intro > div:nth-of-type(1) {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main #intro > div:nth-of-type(1) div h1, #main #intro > div:nth-of-type(1) div h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+#main #intro > div:nth-of-type(1) div h1 {
+  font-weight: 400;
+  font-size: 43px;
+}
+#main #intro > div:nth-of-type(1) div h2 {
+  font-weight: 300;
+  font-size: 30px;
+}
+@media (max-width: 425px) {
+  #main #intro > div:nth-of-type(1) div h1 {
+    font-size: 34px;
+    margin-top: 5px;
+  }
+  #main #intro > div:nth-of-type(1) div h2 {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+}
+#main #intro > div:nth-of-type(1) div#directions {
+  max-width: 400px;
+  font-weight: 300;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+}
+#main #intro > div:nth-of-type(1) div#directions > p:nth-of-type(1) {
+  align-self: center;
+  margin-bottom: 0px;
+}
+#main #intro > div:nth-of-type(1) div#directions > ul > li {
+  margin-top: 15px;
+}
+#main #intro > div:nth-of-type(1) div#directions > ul > li:nth-of-type(1) {
+  margin-top: 0px;
+}
+@media (max-width: 425px) {
+  #main #intro > div:nth-of-type(1) div#directions {
+    font-size: 18px;
+  }
+  #main #intro > div:nth-of-type(1) div#directions > p:nth-of-type(1) {
+    margin-top: 0px;
+  }
+}
+#main #intro > div:nth-of-type(1) button {
+  font-size: 22px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background: white;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+#main #intro {
+  position: absolute;
+  z-index: 7000;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+#main #map {
+  background-color: white;
+  flex: 1;
+}
+#main #map .easy-button-button {
+  font-size: 18px;
+}
+#main #map .leaflet-popup-content {
+  font-size: 16px;
+  text-align: center;
+}
+@keyframes blinkingBorder {
+  0% {
+    border-color: green;
+  }
+  25% {
+    border-color: lime;
+  }
+  50% {
+    border-color: green;
+  }
+  75% {
+    border-color: lime;
+  }
+  100% {
+    border-color: green;
+  }
+}
+#main #map #square, #main #map #axis-y-top, #main #map #axis-y-bottom, #main #map #axis-x-left, #main #map #axis-x-right {
+  background-color: black;
+}
+#main #map #square {
+  top: 50%;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  background-color: rgba(255, 0, 0, 0.4);
+  border: solid;
+  border-width: 4px;
+  border-color: black;
+}
+#main #map #square.blinking {
+  animation: blinkingBorder 1s infinite;
+}
+#main #map #axis-y-top {
+  left: 50%;
+  top: 0px;
+  width: 2px;
+  margin-left: -1px;
+  height: calc(50% - 40px);
+}
+#main #map #axis-y-bottom {
+  left: 50%;
+  top: calc(50% + 40px);
+  width: 2px;
+  margin-left: -1px;
+  height: 50%;
+}
+#main #map #axis-x-left {
+  left: 0px;
+  top: 50%;
+  width: calc(50% - 40px);
+  height: 2px;
+  margin-top: -1px;
+}
+#main #map #axis-x-right {
+  left: calc(50% + 40px);
+  top: 50%;
+  width: calc(50% - 50px);
+  height: 2px;
+  margin-top: -1px;
+}
+#main #map #square, #main #map #axis-y-top, #main #map #axis-y-bottom, #main #map #axis-x-left, #main #map #axis-x-right {
+  position: absolute;
+  z-index: 3500;
+}
+.reveal #main #map #square, .reveal #main #map #axis-y-top, .reveal #main #map #axis-y-bottom, .reveal #main #map #axis-x-left, .reveal #main #map #axis-x-right {
+  visibility: hidden;
+}
+#main #message-panel {
+  position: absolute;
+  z-index: 4000;
+  bottom: 5px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 0 0;
+  width: 100%;
+  max-height: 35%;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  /*#stack*/
+}
+@media (max-width: 800px) {
+  #main #message-panel {
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    bottom: inherit;
+    order: 1;
+    flex: 1;
+    background-color: black;
+    background-size: cover;
+    border-top-style: solid;
+    border-top-width: 2px;
+    max-height: 50%;
+  }
+}
+#main #message-panel #portrait {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border-color: black;
+  border-width: 10px;
+  border-style: solid;
+  top: 0px;
+  z-index: 1;
+  margin-top: -45px;
+  margin-right: -45px;
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+}
+@media (max-width: 800px) {
+  #main #message-panel #portrait {
+    display: none;
+  }
+}
+#main #message-panel #stack {
+  flex-grow: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 40px;
+}
+@media (max-width: 800px) {
+  #main #message-panel #stack {
+    padding-left: 0px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+#main #message-panel #stack #prompt, #main #message-panel #stack #hint, #main #message-panel #stack #exclamation, #main #message-panel #stack #photo-credit {
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  padding: 14px;
+}
+#main #message-panel #stack #prompt a, #main #message-panel #stack #hint a, #main #message-panel #stack #exclamation a, #main #message-panel #stack #photo-credit a {
+  color: white;
+}
+#main #message-panel #stack #prompt a:visited, #main #message-panel #stack #hint a:visited, #main #message-panel #stack #exclamation a:visited, #main #message-panel #stack #photo-credit a:visited {
+  color: white;
+}
+@media (max-width: 800px) {
+  #main #message-panel #stack #prompt, #main #message-panel #stack #hint, #main #message-panel #stack #exclamation, #main #message-panel #stack #photo-credit {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+  }
+}
+#main #message-panel #stack #photo-credit {
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#main #message-panel #stack #prompt {
+  opacity: 0;
+  position: relative;
+}
+#main #message-panel #stack #prompt.fadeIn {
+  opacity: 1;
+}
+@media (max-width: 800px) {
+  #main #message-panel #stack #prompt.fadeIn {
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
+  }
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+#main #message-panel #stack #prompt > button {
+  float: right;
+  background-image: url("../resources/Hint.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  width: 70px;
+  height: 90px;
+  margin-left: 15px;
+  align-self: flex-start;
+}
+.hint #main #message-panel #stack #prompt > button {
+  display: none;
+}
+#main #message-panel #stack #hint {
+  display: none;
+}
+#main #message-panel #stack #hint::before {
+  content: "Hint: ";
+}
+.hint #main #message-panel #stack #hint {
+  display: block;
+}
+#main #message-panel #stack #exclamation {
+  display: none;
+}
+.reveal #main #message-panel #stack #exclamation {
+  display: block;
+}
+#main #message-panel #stack #exclamation > a:nth-of-type(1) {
+  background-color: #444444;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  color: #ffd84d;
+  width: 130px;
+  height: 130px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  border-radius: 65px;
+  text-decoration: none;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+}
+#main #message-panel #stack #exclamation button#button-next {
+  float: right;
+  margin-left: 15px;
+  background-image: url("../resources/Next.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  width: 70px;
+  height: 90px;
+}
+
+/*main*/
+
+/*# sourceMappingURL=main.css.map */
