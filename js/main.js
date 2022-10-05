@@ -9,7 +9,7 @@
 	var MAX_ZOOM = 12;
 	var MIN_ZOOM = 2;
 	var SCALE_DENOMINATOR = 15053027;
-	
+	var url = "https://lacountygeotrivia.github.io/gisday-2021/resources/data.csv";
 	var _map;
 	var _marker;
 	var _records;
@@ -79,13 +79,13 @@
 
 		
 		Papa.parse(
-			"https://lacountygeotrivia.github.io/gisday-2021/resources/data.csv", 
+			url, 
 			{
 				header: true,
 				download: true,
 				complete: function(data) {
 					_records = $.map(
-						data.data, 
+						data.url, 
 						function(value, index){return new Record(value, index);}
 					);
 					finish();
