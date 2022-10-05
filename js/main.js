@@ -79,7 +79,7 @@
 
 		
 		Papa.parse(
-			"data", 
+			"resources/data.csv", 
 			{
 				header: true,
 				download: true,
