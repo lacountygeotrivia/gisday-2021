@@ -84,7 +84,7 @@
 				download: true,
 				complete: function(data) {
 					_records = $.map(
-						data.url, 
+						data.data, 
 						function(value, index){return new Record(value, index);}
 					);
 					finish();
